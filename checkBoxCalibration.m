@@ -2,8 +2,50 @@
 %
 % Checks if calibration points are appropriately triangulated.
 %
-% boxCalibration package for MatLab
+% "Instructions for Use" Step 6
+%
+% Instructions for Use:
+%   1. Collect all calibration images in the same folder.
+%   2. Using ImageJ, manually mark all checkerboard points for each 
+%       calibration image. Save this image with the name 
+%       “GridCalibration_YYYYMMDD_#.tif” where ‘YYYYMMDD’ is the date the 
+%       calibration image corresponds to and ‘#’ is the image number for 
+%       that date.
+%   3. Use the measurement function in ImageJ (in the toolbar, select 
+%       “Analyze” and then “Measure”). This will display a table containing 
+%       coordinates for all points marked. Save this file with the name 
+%       “GridCalibration_YYYYMMDD_#.csv”, where the date and image number 
+%       are the same as the corresponding .tif file. 
+%   4. From the boxCalibration MATLAB package, open the ‘setParams.m’ file. 
+%       This file contains all required variables and their description. 
+%       Edit variables as needed to fit your project’s specifications. 
+%   5. In MATLAB, run the ‘calibrateBoxes’ script. Several prompts which 
+%       require responses will appear in the MATLAB command window. 
+%       The first prompt asks if you want to analyze all images in your folder. 
+%       a. Typing ‘Y’ will end the prompts and all images for all dates 
+%           will be analyzed. 
+%       b. Typing ‘N’ will then prompt you to enter the dates that you want 
+%           to analyze. These dates should be of the form YYYYMMDD. 
+%           If multiple dates will be analyzed, separate each date with a 
+%           comma (e.g., 20190101, 20190102). Note: If the same date is 
+%           analyzed twice, all files will be overwritten. 
+%       c. Two new directories will be created in your calibration images 
+%           folder following the execution of this script: ‘markedImages’ 
+%           contains .png files with the user defined checkerboard marks on 
+%           the calibration image. The ‘boxCalibration’ folder contains the 
+%           .mat box calibration parameters for each date.
+%   6. In MATLAB, run the ‘checkBoxCalibration’ script. The same prompts 
+%       present in the ‘calibrateBoxes’ script will appear. This will create 
+%       a new folder, ‘plots’ in the calibration images folder. Each date 
+%       will have a subfolder containing the images and several MATLAB .fig 
+%       files, which should be viewed in order to verify that box calibration 
+%       was completed accurately. Note: Differently colored dots in the 
+%       calibConfirm_YYYYMMDD_#.png files represent the matched dots in the 
+%       pointConfirm_YYYYMMDD_#.png files.
+%
 
+% boxCalibration package for MatLab
+%
 % By Daniel K Leventhal, 2019
 % dleventh@med.umich.edu
 % https://github.com/orgs/LeventhalLab/boxCalibration
